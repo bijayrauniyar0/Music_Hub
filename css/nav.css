@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+     padding: 0;
+     margin: 0;
+}
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: rgba(12, 12, 12, 0.884);
+    overflow-x: hidden;
+}
+nav{
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    background-color: row;
+    padding: 6px 4px;
+    background-color: rgb(19, 19, 19);
+    box-shadow: 3px 0 4px rgba(75, 75, 75, 0.527);
+    position: fixed;
+    z-index: 100001;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+   
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+nav .left{
+    width: 20%;
+}
+nav .left h2{
+
+    margin: 2px 0 0 30px;
+}
+nav .mid{
+   position: absolute;
+   width: 45%;
+   left:24%;
+    display: flex;
+    flex-direction: row;
+    padding: 4px 2px;
+}
+.mid ul{
+    display: flex;
+    flex-direction: row;
+}
+.mid ul li{
+    list-style: none;
+    margin: auto 20px;
+    
+}
+.mid ul li a{
+    font-size: 18px;
+}
+.mid .search{
+    margin-left: 30px;
+    width: 48%;
+    border-radius: 40px;
+    padding: 8px 16px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.192);
+    backdrop-filter: blur(3px);
+    
+}
+::placeholder{
+    padding: 0 0 0 8px;
+    color: white;
+}
+nav .right{
+    width: 30%;
+    position: absolute;
+    left: 70%;
+    display: inline-flex;
+    padding: 4px;
+}
+nav .right .msg{
+    margin-right: 20px;
+    font-size: 28px;
+    color: white;
+}
+nav .right .msg:hover{
+    cursor: pointer;
+}
+nav .right .msg i:hover + .messages{
+    opacity: 1;
+    height: 320px;
+}
+nav .msg .messages{
+    width: 300px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.267);
+    border-radius: 20px;
+    /* z-index: 1000; */
+    position: relative;
+    margin-top: 5%;
+    right: 45%;
+    backdrop-filter: blur(3px);
+    padding-bottom: 20px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.2s ease-in-out;
+}
+.inbox-heading{
+    text-align: center;
+    margin: 20px 0;
+    color: rgb(27, 129, 87);
+}
+.messages h4{
+    font-size: 16px;
+    padding: 10px 16px;
+    color: rgb(0, 0, 0);
+
+}
+.messages hr{
+    border: none;
+    height: 2px;
+    width: 94%;
+    background-color: gray;
+    margin: 3px 7px;
+}
+nav .right .sign-in{
+    margin: 2px 20px;
+    font-size: 18px;
+    position: absolute;
+    padding-top: 4px;
+    left: 50px;
+}
+nav .right .newMember h2{
+    margin: 2px 10px 2px 40px;
+    font-size: 16px;
+    background-color: rgb(177, 177, 177);
+    border-radius: 10px;
+    padding: 6px 8px;
+    position: absolute;
+    right: 30px;
+
+}
+nav .right .newMember h2:hover{
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
+    color: white;
+}
+.right .sign-in a:hover{
+    color: rgb(6, 204, 95);
+}
+
+/* ------------------------------------------ */
+/* artists form */
+.artists-form{
+    background-color: rgb(32, 32, 32);
+    width: 550px;
+    height: 330px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 55%;
+    left: 60%;
+    border-radius: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.1s ease-in-out;
+    padding: 80px 50px;
+
+}
+#create-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 30px 0;
+}
+#create-heading h2{
+    font-size: 2rem;
+    color: whitesmoke;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.form-group3{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 25px;
+
+}
+label{
+    margin: 10px 15px;
+    font-size: 20px;
+    color: darkgrey;
+    font-weight: 500;
+}
+#name,#handle{
+    width: 95%;
+    padding: 16px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+.next-btn-container{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin: 30px 50px 10px 0;
+}
+#next-btn{
+    width: 20%;
+    padding: 14px 20px;
+    background-color: rgb(13, 112, 104);
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    
+
+}
+#next-btn:hover{
+    cursor: pointer;
+    background-color: rgb(8, 87, 80);
+}
+.artists-form.open{
+    opacity: 1;
+}
+.fa-xmark:hover{
+    cursor: pointer;
+    
+}

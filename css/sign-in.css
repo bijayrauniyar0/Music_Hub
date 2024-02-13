@@ -1,0 +1,87 @@
+body{
+    color: white;
+}
+main{
+    display: flex;
+    margin-top: 50px;
+    background-image: url(../images/bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 93vh;
+    width: 100%;
+}
+.form-container{
+    width: 300px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.308);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 60%;
+    top: 50%;
+    border: 3px solid rgb(255, 255, 255);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    padding: 30px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    z-index: 10000;
+}
+.form-container h2{
+    text-align: center;
+    font-size: 2rem;
+}
+.form-container .new-member{
+    text-align: center;
+    font-size: 18px;
+}
+.form-container .new-member a{
+    color: rgb(11, 86, 184);
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+.form-container .new-member a:hover{
+    text-decoration: underline;
+    color: rgb(4, 51, 114);
+    font-weight: 700;
+}
+form{
+    margin-left: 10px;
+}
+.form-group{
+    margin: 10px 0;
+}
+.form-group label{
+    margin-left: 10px;
+    color: black;
+}
+#password,#email{
+    border-radius: 30px;
+    padding: 12px 16px;
+    width: 92%;
+    border: none;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.199);
+    backdrop-filter: blur(3px);
+    color: white;
+    font-size: 18px;
+  
+}
+.sbt-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login{
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(0, 128, 64);
+    padding: 14px 22px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.sbt-btn #login:hover{
+    cursor: pointer;
+}

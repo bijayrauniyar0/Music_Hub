@@ -1,0 +1,68 @@
+.artists-form{
+    background-color: rgb(32, 32, 32);
+    width: 500px;
+    height: 430px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 60%;
+    left: 60%;
+    border-radius: 20px;
+    z-index: 1000;
+}
+#create-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 30px 0;
+}
+#create-heading h2{
+    font-size: 2rem;
+    color: whitesmoke;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.form-group3{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 25px;
+
+}
+label{
+    margin: 10px 15px;
+    font-size: 20px;
+    color: darkgrey;
+    font-weight: 500;
+}
+#name,#handle{
+    width: 95%;
+    padding: 16px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+.next-btn-container{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin: 30px 50px 10px 0;
+}
+#next-btn{
+    width: 20%;
+    padding: 14px 20px;
+    background-color: rgb(13, 112, 104);
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    
+
+}
+#next-btn:hover{
+    cursor: pointer;
+    background-color: rgb(8, 87, 80);
+}

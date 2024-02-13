@@ -1,0 +1,130 @@
+#aside{
+    width: 25%;
+    background-color: rgb(14, 14, 14);
+    height: 93vh;
+    position: fixed;
+    border-top: 0.1px solid rgba(75, 75, 75, 0.459);
+    overflow: hidden;
+    margin-top: 4px;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+}
+#aside .top-aside{
+    padding: 20px 3px 3px 0;
+    height: 40vh;
+    overflow-y: auto;
+}
+#aside .top-aside ul li{
+    list-style: none;
+   padding: 20px 5px 20px 30px;
+    font-size: 18px;
+    margin-left: 10px;
+    transition: 0.3s ease-in-out;
+    display: block;
+    
+}
+#aside .top-aside ul li a{
+    text-decoration: none;
+    color: white;
+}
+#aside .top-aside ul li a i{
+    margin-right: 20px;
+}
+#aside .top-aside ul li:hover{
+    background-color: rgb(61, 61, 61);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.top-aside::-webkit-scrollbar{
+    width: 7px;
+    
+}
+.top-aside::-webkit-scrollbar-thumb{
+    border-radius: 8px;
+    
+    background-color: transparent;
+
+}
+.top-aside:hover::-webkit-scrollbar-thumb{
+    background-color: gray;
+}
+.music-img{
+    width: 150px;
+    background-color: gray;
+    background-image: url(../images/mp/02.jpg);
+    background-size: cover;
+    position: absolute;
+    height: 150px;
+    left: 50%;
+    top: 65%;
+    border: 3px solid gray;
+    transform: translate(-50%,-50%);
+    animation: bg 20s forwards infinite;
+}
+@keyframes bg{
+    0%{
+        background-image: url(../images/mp/01.jpg);
+    }
+    50%{
+        background-image: url(../images/mp/02.jpg);
+    }
+    100%{
+        background-image: url(../images/mp/03.jpg);
+    }
+}
+.music-player{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    margin-top: 60%;
+    justify-content: center;
+    align-items: center;
+
+}
+.controls #songSlider{
+    width: 160px;
+    height: 3px;
+}
+input[type="range"]{
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    background-color: rgb(122, 119, 119);
+    color: gray;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: rgb(214, 214, 214);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.song-controls{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-controls i{
+    margin: 10px 20px 0 15px;
+    color: white;
+    font-size: 22px;
+   
+}
+#songdisplay{
+    color: white;
+    font-size: 16px;
+    padding: 0 0 20px 0;
+    margin-top: -20px;
+}
