@@ -4,6 +4,24 @@
     <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
 </head>
 <header>
+<?php 
+include "_dbconnect.php";
+
+$loggedin = false;
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $loggedin=true;
+    
+    $sql = "SELECT * FROM users WHERE Email = '".$_SESSION['email']."'";
+
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+    $row = mysqli_fetch_assoc($result);
+}
+else{
+    $loggedin = false;
+}
+echo '
         <nav>
             <div class="left">
                 <h2><a href="../main/index.php">Loop Verse</a></h2>
@@ -15,7 +33,9 @@
                 </ul>
                 <input type="text" class="search" placeholder="Search Artits, Albums...">
             </div>
-            <div class="right">
+            <div class="right">';
+            if ($loggedin ==true){
+                echo'
                 <div class="msg">
                     <i class="fa-solid fa-inbox"></i>
                     <div class="messages">
@@ -30,17 +50,37 @@
                         <hr>
                         <h4>Your Message 5</h4>
                     </div>
-                </div>
+                </div>';}
+                if(!$loggedin){
+                    echo'
                 <div class="sign-in">
                     <a href="sign-in.php">Sign In</a>
                     <a href="sign-in.php"><i class="fa-solid fa-right-to-bracket"></i></a>
-                </div>
+                </div>';}
+                if($loggedin == true){
+                    echo'
+                    <div class ="user-container">
+                        <div class="user">
+                        <span id="user"><i class="fa-solid fa-user"></i> <h2>  '.$row["FirstName"].'  </h2>  
+                        <i class="fa fa-caret-down"></i></span>
+
+                            <div class="user-login">
+                                <a href="../main/profile.php">Profile</a>
+                                <hr>
+                                <a href="/partials/_logout.php">Log Out</a>
+                            </div>
+                        </div>
+                    </div>';
+                }
+                echo'
                 <div class="newMember">
                     <h2 onclick="openContainer()">Are you a Artist?</h2>
                 </div>
             </div>
         </nav>
-    </header>
+    </header>';
+    if($_SESSION['loggedin']){
+    echo '
     <div class="create-container">
         <div class="artists-form">
             <span id="create-heading" class="create-heading">
@@ -62,5 +102,9 @@
             </form>
 
         </div>
-    </div>
+    </div>';} 
+    else{
+        header("location: ../main/sign-in.php");
+    }
+    ?>
 <script src="../js/toggler.js"></script>

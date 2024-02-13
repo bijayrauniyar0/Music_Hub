@@ -1,7 +1,7 @@
 /* Main container */
 main {
     display: flex;
-    margin-top: 50px;
+    padding-top: 50px;
     background-image: url(../images/bg2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,7 +54,7 @@ label {
     margin: 10px 0;
     background-color: rgba(255, 255, 255, 0.199);
     backdrop-filter: blur(3px);
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 18px;
 }
 .input-container {
@@ -73,7 +73,7 @@ label {
     border: none;
     background-color: rgba(255, 255, 255, 0.199);
     backdrop-filter: blur(3px);
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
 }
 
