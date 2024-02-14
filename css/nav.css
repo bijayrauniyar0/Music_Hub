@@ -56,9 +56,23 @@ nav .mid{
 .mid ul li a{
     font-size: 18px;
 }
+.mid #search-form{
+    display: flex;
+    flex-direction: row;
+}
+.mid #search-form button{
+    background-color: transparent;
+    border: none;
+}
+.mid #search-form button i{
+    background-color: none;
+    font-size: 20px;
+    color: white;
+    padding: 3px 5px;
+}
 .mid .search{
     margin-left: 30px;
-    width: 48%;
+    width: 68%;
     border-radius: 40px;
     padding: 8px 16px;
     border: none;
@@ -70,15 +84,16 @@ nav .mid{
     padding: 0 0 0 8px;
     color: white;
 }
+
 nav .right{
     width: 30%;
     position: absolute;
-    left: 70%;
+    left: 68%;
     display: inline-flex;
     padding: 4px;
 }
 nav .right .msg{
-    margin-right: 20px;
+    margin-right: 30px;
     font-size: 28px;
     color: white;
 }
@@ -130,14 +145,17 @@ nav .right .sign-in{
     padding-top: 4px;
     left: 50px;
 }
+.newMember{
+    position: absolute;
+    right: 0px;
+}
 nav .right .newMember h2{
     margin: 2px 10px 2px 40px;
     font-size: 16px;
     background-color: rgb(177, 177, 177);
     border-radius: 10px;
     padding: 6px 8px;
-    position: absolute;
-    right: 30px;
+    
 
 }
 nav .right .newMember h2:hover{
@@ -148,7 +166,70 @@ nav .right .newMember h2:hover{
 .right .sign-in a:hover{
     color: rgb(6, 204, 95);
 }
-
+#user{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.user{
+    position: absolute;
+    left: 15%;
+    padding: 4px 6px;
+    cursor: pointer;
+    
+}
+.user i{
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    padding: 2px 6px;
+    margin: 0 12px;
+}
+.user .fa-caret-down{
+    font-size: 14px;
+    padding: 8px 4px;
+}
+.user-login{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.356);
+    backdrop-filter: blur(3px);
+    width: 150px;
+    height: 0;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    right: 35px;
+    overflow: hidden;
+    opacity: 0;
+    border: 2px solid black;
+    transition: height 0.2s ease-in-out;
+    z-index: 10000;
+}
+.user-login hr{
+    width: 90%;
+    background-color: black;
+    margin: 5px 7px;
+    height: 1px;
+    border: none;
+}
+.user-login a{
+    font-size: 18px;
+    padding: 8px 6px;
+    transition: 0.2s ease-in-out;
+}
+#user:hover + .user-login,
+.user-login:hover {
+    opacity: 1;
+    height: 100px;
+}
+.user-login a:hover{
+    color: rgb(27, 99, 59);
+    font-weight: 700;
+}
+#user h2{
+    color: white;
+}
 /* ------------------------------------------ */
 /* artists form */
 .artists-form{
@@ -161,7 +242,7 @@ nav .right .newMember h2:hover{
     left: 60%;
     border-radius: 20px;
     z-index: 1000;
-    opacity: 0;
+    display: none;
     transition: 0.1s ease-in-out;
     padding: 80px 50px;
 
@@ -195,11 +276,14 @@ label{
 }
 #name,#handle{
     width: 95%;
-    padding: 16px 20px;
+    padding: 16px 30px;
     border-radius: 30px;
     border: none;
     font-size: 16px;
     font-weight: 700;
+}
+#handle{
+    padding: 16px 10px 16px 50px;
 }
 .next-btn-container{
     display: flex;
@@ -224,9 +308,162 @@ label{
     background-color: rgb(8, 87, 80);
 }
 .artists-form.open{
-    opacity: 1;
+
+    display: block;
 }
 .fa-xmark:hover{
     cursor: pointer;
     
+}
+.handle-prefix {
+    position: absolute;
+    left: 15%;
+    bottom: 29%;
+    transform: translateY(-50%);
+    color: rgb(70, 70, 70);
+    font-size: 22px;
+    
+}
+
+/* -------------------------------------------------------- */
+/* uploader */
+#upload-icons{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.11);
+    padding: 8px 14px;
+    right: 15px;
+    font-size: 16px;
+    backdrop-filter: blur(2px);
+}
+#upload-icons i{
+    color: rgb(0, 128, 64);
+    margin-right: 10px;
+    font-size: 22px;
+}
+#upload-icons:hover{
+    cursor: pointer;
+    background-color: rgba(136, 245, 160, 0.315);
+    
+}
+
+/* handle error*/
+#handle-error{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* --------------------------------------------- */
+/* uploader */
+
+
+.upload-form #upload-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    margin: 10px 0;
+}
+.upload-form{
+    background-color: rgb(32, 32, 32);
+    width: 550px;
+    height: 107vh;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    border-radius: 20px;
+    z-index: 1000;
+    transition: 0.1s ease-in-out;
+    padding: 40px 50px;
+    display: none;
+    
+}
+.details-box{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 6px 0;
+}
+.upload-form label{
+    font-size: 24px;
+    padding: 3px 8px;
+}
+
+.upload-form form .details-box input,.upload-form form  .details-box textarea,#genre{
+    border-radius: 10px;
+    padding: 10px 18px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.192);
+    backdrop-filter: blur(2px);
+    font-size: 18px;
+}
+::placeholder{
+    color: black;
+    font-size: 16px;
+}
+.details-box textarea{
+    max-height: 100px;
+    max-width: 90%;
+    min-height: 100px;
+    min-width: 90%;
+}
+#genre option{
+    background-color: rgba(128, 128, 128, 0.562);
+    margin: 3px 20px;
+}
+.file-input-container {
+    position: relative;
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    border: 2px dashed #ccc; /* Dashed border */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+/* Style the file input */
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+/* Style the camera icon */
+.camera-icon {
+    width: 50px; /* Adjust the size of the icon */
+    height: auto;
+}
+.image-upload h2{
+    text-align: start;
+}
+#sbt-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#upload-btn{
+    margin: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+}
+.upload-form.open{
+    display: block;
+}
+#upload-btn:hover{
+    background-color: rgb(184, 184, 184);
 }

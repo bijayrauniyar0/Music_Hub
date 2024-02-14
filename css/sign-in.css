@@ -62,7 +62,7 @@ form{
     margin: 10px auto;
     background-color: rgba(255, 255, 255, 0.199);
     backdrop-filter: blur(3px);
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 18px;
   
 }
@@ -84,4 +84,33 @@ form{
 }
 .sbt-btn #login:hover{
     cursor: pointer;
+}
+
+
+/* alert */
+#success-alert{
+    width: 350px;
+    height: 150px;
+    background-color: rgb(16, 143, 65);
+    border-radius: 20px;
+    margin:50px 0 10px 47%;
+    font-size: 18px;
+    text-align: center;
+    z-index: 10001;
+    
+}
+#success-alert h3{
+    margin-top: 20px;
+}
+#success-alert h3 a{
+    background-color: rgba(6, 170, 175, 0.774);
+    color: white;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    width: 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    
 }

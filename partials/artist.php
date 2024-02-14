@@ -1,23 +1,42 @@
-<head>
-    <link rel="stylesheet" href="../css/artist.css">
-    <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
-</head>
-<div class="artists-form">
-    <span id="create-heading">
-        <h2>Open Pathway</h2>
-        <h2><i class="fa-solid fa-xmark"></i></h2>
-    </span>
-    <form action="artist.php">
-        <div class="form-group3">
-            <label for="Name">Stage Name</label>
-            <input type="text" id="Name" require>
-        </div>
-        <div class="form-group3">
-            <label for="handle">Handle</label>
-            <input type="text" id="handle" require>
-        </div>
-        <div class="next-btn-container">
-            <button type="submit" id="next-btn"><span class="next-btn">Next</span></button>
-        </div>
-    </form>
-</div>
+<?php 
+session_start();
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    include '../partials/_dbconnect.php';
+    
+    $sql2 = "CREATE TABLE IF NOT EXISTS artists (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        stage_name VARCHAR(30) NOT NULL,
+        handle VARCHAR(30) NOT NULL NOT NULL UNIQUE,
+        Phone_number VARCHAR(15) NOT NULL UNIQUE,
+        Email VARCHAR(50) NOT NULL UNIQUE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )";
+    $result=mysqli_query($conn,$sql2);
+    $stage_name = $_POST["stage_name"];
+    $handle = $_POST["handle"];
+    
+    $checkEmailQuery = "SELECT * FROM artists WHERE Email = '".$_SESSION['email']."'";
+    $checkEmailResult = mysqli_query($conn, $checkEmailQuery);
+
+        if (mysqli_num_rows($checkEmailResult) > 0) {
+            // $emailExistsError = true;
+            echo'stage already exists';
+        }
+    
+    $sql4 = "SELECT * FROM users WHERE Email = '".$_SESSION['email']."'";
+    $result4= mysqli_query($conn,$sql4);
+    $row4 = mysqli_fetch_assoc($result4);
+
+    $sql5 = "INSERT INTO `artists` (`stage_name`,`handle`,`Phone_number`, `email`, `created_at`) VALUES ('$stage_name', '@$handle', '".$row4['Phone_number']."','".$_SESSION['email']."',current_timestamp());";
+
+    $result5 = mysqli_query($conn,$sql5);
+
+    if($result5){
+        echo 'Account Upgraded Successfully';
+        header("location:../main/index.php");
+    }
+
+
+
+}
+?>

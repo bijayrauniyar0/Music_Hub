@@ -1,0 +1,94 @@
+main{
+    margin-top: 50px;
+    background-image: url(../images/bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200vh;
+    display: flex;
+}
+.search-results-container{
+    margin-left: 25%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.search-result{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.336);
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    padding: 10px 20px;
+    backdrop-filter: blur(2px);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.514);
+}
+.search-result:first-child{
+    margin-top: 40px;
+}
+.search-result:not(:first-child){
+    margin-top: 20px;
+}
+.image-box{
+    display: flex;
+    align-items: center;
+}
+.search-result .image-box img{
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.search-result .song-details{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 60%;
+}
+.search-result .song-details h2{
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+.search-result .song-details p{
+    margin-top: 8px;
+    text-align: justify;
+}
+.search-result .song-details h3{
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: gray;
+    padding: 10px 8px;
+    width: 32%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+}
+.search-result h3 i{
+    margin-right: 10px;
+    font-size: 22px;
+    color: rgb(0, 128, 58);
+
+}
+.search-result h3 a{
+    color: black;
+    text-decoration: none;
+}
+.search-result h3 span{
+    transition: 0.2s ease-in-out;
+}
+.search-result h3:hover{
+    background-color: black;
+}
+.search-result h3:hover span{
+    color: white;
+
+}
+.fa-ellipsis-vertical{
+    margin-left: 80px;
+    font-size: 22px;
+    padding: 10px 6px;
+}
