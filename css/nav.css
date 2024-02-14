@@ -166,70 +166,7 @@ nav .right .newMember h2:hover{
 .right .sign-in a:hover{
     color: rgb(6, 204, 95);
 }
-#user{
-    display: flex;
-    flex-direction: row;
-    color: white;
-}
-.user{
-    position: absolute;
-    left: 15%;
-    padding: 4px 6px;
-    cursor: pointer;
-    
-}
-.user i{
-    font-size: 22px;
-    color: rgb(255, 255, 255);
-    padding: 2px 6px;
-    margin: 0 12px;
-}
-.user .fa-caret-down{
-    font-size: 14px;
-    padding: 8px 4px;
-}
-.user-login{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.356);
-    backdrop-filter: blur(3px);
-    width: 150px;
-    height: 0;
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    right: 35px;
-    overflow: hidden;
-    opacity: 0;
-    border: 2px solid black;
-    transition: height 0.2s ease-in-out;
-    z-index: 10000;
-}
-.user-login hr{
-    width: 90%;
-    background-color: black;
-    margin: 5px 7px;
-    height: 1px;
-    border: none;
-}
-.user-login a{
-    font-size: 18px;
-    padding: 8px 6px;
-    transition: 0.2s ease-in-out;
-}
-#user:hover + .user-login,
-.user-login:hover {
-    opacity: 1;
-    height: 100px;
-}
-.user-login a:hover{
-    color: rgb(27, 99, 59);
-    font-weight: 700;
-}
-#user h2{
-    color: white;
-}
+
 /* ------------------------------------------ */
 /* artists form */
 .artists-form{
