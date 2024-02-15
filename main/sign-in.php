@@ -44,9 +44,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-
+<?php require '../partials/_nav.php'?>
     <main>
-    <?php require '../partials/_aside.php' ?>
+    <?php include '../partials/_nav.php' ; 
+    if($_SESSION['loggedin']){
+        echo'    
+        <div id="success-alert" role="alert">
+            <h2>Success!!!</h2> <p>Welcome to Loop Verse</p>
+            <h3><a href="index.php">OK</a></h3><br>
+        </div>';}
+    include '../partials/_aside.php' ?>
         <div class="form-container">
             
             <h2>Sign In</h2>
