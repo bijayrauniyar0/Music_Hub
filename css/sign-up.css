@@ -1,4 +1,9 @@
 /* Main container */
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: rgba(12, 12, 12, 0.884);
+    overflow-x: hidden;
+}
 main {
     display: flex;
     padding-top: 50px;

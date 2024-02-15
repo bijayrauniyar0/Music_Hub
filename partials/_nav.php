@@ -90,15 +90,18 @@ echo '
                 </div> ';}
                 if($stageExists ==  true){
         
-                    echo'
+                    echo '
                     <div class="uploader">
-                    <span id="upload-icons" onclick="openUploader()"> <i class="fa-solid fa-music"></i> <h3>Upload</h3></span>
-                    </div>';}
+                    <span id="upload-icons" onclick="openUploader()">
+                        <i class="fa-solid fa-music"></i> <h3>Upload</h3>
+                    </span>
+                </div>';
+                }
             echo'
             </div>
         </nav>
     </header>';
-    if($_SESSION['loggedin']){
+    if($loggedin){
     echo '
     <div class="create-container">
         <div class="artists-form">
@@ -125,5 +128,12 @@ echo '
 
         </div>
     </div>';} 
+    
     ?>
+    <script>
+     function openUploader() {
+        window.location.href = "../main/studio.php";
+    }
+    </script>
 <script src="../js/toggler.js"></script>
+

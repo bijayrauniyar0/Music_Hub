@@ -6,6 +6,7 @@
         <div class="top-aside">
             <ul>
                 <li><a href="../main/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="../main/studio.php"><i class="fa-solid fa-house"></i>Studio</a></li>
                 <li><a href=""><i class="fa-solid fa-compact-disc"></i>Albums</a></li>
                 <li><a href=""><i class="fa-solid fa-microphone"></i>Artists</a></li>
                 <li><a href=""><i class="fa-solid fa-fire"></i>Most Viewed</a></li>

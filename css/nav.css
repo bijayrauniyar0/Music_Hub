@@ -4,11 +4,6 @@
      padding: 0;
      margin: 0;
 }
-body{
-    font-family: "Montserrat", sans-serif;
-    background-color: rgba(12, 12, 12, 0.884);
-    overflow-x: hidden;
-}
 nav{
     height: 7vh;
     display: flex;

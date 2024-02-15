@@ -1,25 +1,16 @@
 var channelContainer = document.querySelector(".artists-form")
-var uploader = document.querySelector(".upload-form")
 
 function openContainer(){
     channelContainer.classList.toggle('open')
     document.querySelector('.main').classList.add('blur');
 }
-function openUploader(){
-    // uploader.classList.toggle('open')
-    window.location.href = "../main/upload.php";
-}
-
 function closeContainer(){
     channelContainer.classList.remove('open')
     document.querySelector('.main').classList.remove('blur');
 
 }
-function closeUploader(){
-    uploader.classList.remove('open')
-    document.querySelector('.main').classList.remove('blur');
 
-}
+
 
 // handle checker
 document.getElementById('handle').addEventListener('input', function() {
@@ -63,3 +54,6 @@ function updateErrorMessage(message) {
         errorMessageElement.style.display = 'block'; // Show error message if error exists
     }
 }
+
+
+
