@@ -1,28 +1,20 @@
 var uploader = document.querySelector('.upload-formm')
+var data_container = document.querySelector('.uploaded-data-container')
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Toggle the class 'open' of the uploader
-    document.querySelector('.upload-formm').classList.toggle('open');
+    uploader.classList.toggle('open');
+    data_container.classList.toggle('open');
+    document.querySelector('.main').classList.add('blur');
+    document.querySelector('.footer').style.display = 'none'
 });
 
 function closeUploader(){
     uploader.classList.remove('open')
+    data_container.classList.remove('open')
+    document.querySelector('.main').classList.remove('blur');
+    document.querySelector('.footer').style.display = 'block'
 
 }
 
-// tabbind in the aside
 
-function openTabs(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].classList.remove("active");
-    }
-    tablinks = document.getElementsByClassName("tab");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-    }
-    document.getElementById(tabName).classList.add("active");
-    evt.currentTarget.classList.add("active");
-}
 

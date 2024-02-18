@@ -13,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         description TEXT,
         genre VARCHAR(50),
         thumbnail VARCHAR(255),
-        audio VARCHAR(255)
+        audio VARCHAR(255),
+        uploaded_at  DATETIME
         
     )";
     $resultSongsTable = mysqli_query($conn,$sqlSongsTable);
@@ -22,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultArtists = mysqli_query($conn,  $sqlFetchArtists);
     $row = mysqli_fetch_assoc($resultArtists);
     $handle = $row['handle'];
+    $stage_name = $row['stage_name'];
 
     if (isset($_FILES["audioFile"]) && $_FILES["audioFile"]["error"] == UPLOAD_ERR_OK) {
         
@@ -72,11 +74,9 @@ move_uploaded_file($_FILES["image"]["tmp_name"], $targetDirectory . $imageDirect
 move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDirectory . $audioFileName);
 
 
-
-
         // Insert data into database
-        $sql = "INSERT INTO uploaded_data (email, handle,title, description, genre, thumbnail, audio) 
-        VALUES ('".$_SESSION['email']."', '$handle','$title', '$description', '$genre', '$thumbnailName', '$audioName')";        
+        $sql = "INSERT INTO uploaded_data (name ,email, handle,title, description, genre, thumbnail, audio, uploaded_at) 
+        VALUES ('$stage_name ','".$_SESSION['email']."', '$handle','$title', '$description', '$genre', '$thumbnailName', '$audioName', current_timestamp());";        
         
         if (mysqli_query($conn, $sql)) {
             echo '<script>alert("Congrats! Your Audio has been uploaded")</script>';
@@ -87,22 +87,47 @@ move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDi
         echo '<script>alert("Error! Try Again")</script>';
     }
 }
-?>
+$sqlUploadData = "SELECT * FROM uploaded_data WHERE email = '".$_SESSION["email"]."'";
+$resultUploadedData = mysqli_query($conn,$sqlUploadData);
 
+echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/studio.css">
     <title>Document</title>
 </head>
-<body>
-<?php include '../partials/_nav.php' ;  ?>
-    <main>
-        <?php include '../partials/_profile_aside.php'; ?>
+<body>';
+   include '../partials/_nav.php';
+    echo '<main class="main">';
+       include '../partials/_profile_aside.php';
+       $numUploadedData = mysqli_num_rows($resultUploadedData);
+       echo '<div class="uploaded-data-container">';
 
+            if ($numUploadedData > 0) {
+                while($row = mysqli_fetch_assoc($resultUploadedData)){
+                    echo '<div class="uploaded-result">';
+                    echo '<div class="image-box">';
+                    echo '<img src="../images/'.$row['thumbnail'].'" alt="">';
+                    echo '</div>';
+                    echo '<div class="song-details">';
+                    echo '<h2>'.str_replace('_', ' ', ''.$row['title']).'</h2>';
+                    echo '<p>'.$row['description'].' </p>';
+                    echo '<p>'.$row['genre'].' </p>';
+                    echo '<h3 class="play-now" onclick="playNow(\''.$row['audio'].'\'); songDisplay(\''.$row['title'].'\'); imgDisplay(\''.$row['thumbnail'].'\');"><i class="fa-solid fa-circle-play"></i><span>Play Now</span></h3>';
+                    echo '</div>';
+                    echo '<i class="fa-solid fa-ellipsis-vertical"></i>';
+                    echo '</div>';
+                }
+            }
+               
+            
 
+?>
+</main>
         <div class="upload-formm">
             <span id="upload-heading" class="create-heading">
                 <h2>Upload Song</h2>
@@ -122,6 +147,7 @@ move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDi
                     <select id="genre" name="genre" required>
                         <option value="">Select a genre</option>
                         <option value="pop">Pop</option>
+                        <option value="pop">Romantic</option>
                         <option value="rock">Rock</option>
                         <option value="hiphop">Hip-hop</option>
                         <option value="country">Country</option>
@@ -152,8 +178,12 @@ move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDi
                 </span>
             </form>
         </div>
-`   </main>
+    <span class="footer">
     <?php include '../partials/_footer.php' ?>
-        <script src="../js/studio.js"> </script>
+    </span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../js/studio.js"></script>
+        <script src="../js/script.js"></script>
+
 </body>
 </html>

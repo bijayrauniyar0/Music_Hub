@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* main */
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: rgba(12, 12, 12, 0.884);
+    overflow-x: hidden;
+}
+.main-container{
+    top: 12%;
+    position: absolute;
+    width: 71%;
+    left: 27%;
+}
+.image-box{
+    height: 70vh;
+    
+}
+.image-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: top;
+
+}
+.image-box .artist-detail{
+    position: absolute;
+    top: 25px;
+    left: 32px;
+}
+.image-box .artist-detail h2{
+    font-size: 2.4rem;
+}
+.image-box .artist-detail p{
+    font-size: 18px;
+}
+.song-main{
+    display: flex;
+    justify-content: center;
+   
+}
+.songs-list{
+    height: 10vh;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 30px;
+    padding: 6px 8px;
+    
+}
+.numbers{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: rgba(255, 255, 255, 0.801);
+    width: 10%;
+
+}
+.numbering{
+    font-size: 2rem;
+}
+.songs-list img{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-left: 30px;
+    overflow: hidden;
+}
+.hover-image{
+
+    border-radius: 10px;
+}
+.play-btn{
+    position: absolute;
+    left: 17%;
+    top: 21px;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    
+
+}
+.play-btn i{
+    font-size: 32px;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+.hover-image:hover img{
+    filter: brightness(1.2) grayscale(0.5) blur(1px);
+    transform: scale(1.2);
+}
+.hover-image:hover .play-btn{
+    opacity: 1;
+}
+.play-btn i:hover{
+    color: rgb(0, 128, 85);
+
+}
+.song-details{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20px;
+}
+.song-details h3{
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+.song-details p{
+    font-size: 18px;
+    margin-top: 6px;
+    color: rgba(212, 212, 212, 0.808);
+}
+.main-container hr{
+    position: relative;
+    top: 30px;
+    width: 80%;
+    right: 30px;
+    border: none;
+    height: 1.5px;
+    /* background-color: rgb(68, 65, 65); */
+    margin: 10px auto;
+    box-shadow: 1px 2px 1px rgba(161, 161, 161, 0.514);
+
+}
+.song-details p .bar{
+    font-size: 18px;
+    font-weight: bolder;
+}
+.play{
+    position: absolute;
+    right: 60px;
+    top: 14px;
+}
+.play i{
+    font-size: 2.3rem;
+    color: rgb(6, 150, 107);
+    transition: .2s ease-in-out
+
+}
+.play i:hover{
+    transform: scale(1.1);
+    color: rgb(10, 172, 83);
+}
+.play-now{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play-now span{
+    color: rgb(10, 145, 82);
+    font-size: 18px;
+    padding: 4px 6px;
+  
+    
+}

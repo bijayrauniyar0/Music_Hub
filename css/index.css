@@ -316,18 +316,20 @@ main{
     display: flex;
     flex-direction: column;
     
+    
 }
 
 .list-holder{
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    
 }
 .list-holder hr{
     width: 20vw;
     height: 0.1px;
     background-color: rgba(114, 114, 114, 0.671);
     border: none;
-    margin: 10px 35px;
+    margin: 5px 35px;
 
 }
 .list-detail{
@@ -336,6 +338,8 @@ main{
     margin-left: 10px;
     height: 9vh;
     margin-top: 5px;
+    position: relative;
+    bottom: 22px;
 }
 .list-detail:first-child{
     margin-top: 30px;
@@ -397,11 +401,13 @@ main{
     width: 100%;
     transition: 0.3s ease-in-out;
 }
-.list-text h4{
+.list-text h4 a{
     font-weight: 500;
     color: rgba(255, 255, 255, 0.747);
     transition: 0.3s ease-in-out;
+    text-decoration: none;
 }
+
 .time{
     margin-left: 20px;
     padding: 12px 2px 4px 2px;
@@ -411,7 +417,7 @@ main{
     width: 15%;
     
 }
-.list-text h3:hover, .list-text h4:hover{
+.list-text h3:hover, .list-text h4 a:hover{
     color: rgb(35, 133, 87) ;
     cursor: pointer;
 }

@@ -25,6 +25,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         $stageExists = true;
 
     }
+    $row4 = mysqli_fetch_assoc($result_check);
 }
 else{
     $loggedin = false;
@@ -72,7 +73,7 @@ echo '
                     echo'
                     <div class ="user-container">
                         <div class="user">
-                        <span id="user"><i class="fa-solid fa-user"></i> <h2>  '.$row["first_name"].'  </h2>  
+                        <span id="user"><img src="../images/artists/'.$row4['artistImage'].'" id="user-img"> <h2>  '.$row["first_name"].'  </h2>  
                         <i class="fa fa-caret-down"></i></span>
 
                             <div class="user-login">
@@ -109,18 +110,31 @@ echo '
                 <h2>Initiate Avenue</h2>
                 <h2 onclick="closeContainer()" class="x"><i class="fa-solid fa-xmark"></i></h2>
             </span>
-            <form action="../partials/artist.php" method="POST">
-                <div class="form-group3">
-                    <label for="name">Stage Name</label>
-                    <input type="text" id="name" name="stage_name" required>
+            <form action="../partials/artist.php" method="POST" enctype="multipart/form-data">
+                <div id="avenue-form">
+                    <div class="form-text-container">
+                        <div class="form-group3">
+                            <label for="name">Stage Name</label>
+                            <input type="text" id="name" name="stage_name" required>
+                        </div>
+                        <div class="form-group3">
+                            <label for="handle">Handle</label>
+                            <input type="text" id="handle" name="handle" required>
+                            <span class="handle-prefix">@</span>
+                        </div>
+                        <div id="handle-error"></div>
+                    </div>
+                    <div class="form-text-container" id="artist-image">
+                        <h2>Thumbnail</h2>
+                        <div class="dashed-box">
+                                <label for="image" class="file-input-container">
+                                    <img src="../images/camera-icon.png" alt="Camera Icon" class="camera-icon">
+                                    <input type="file" name="image" id="image" class="file-input" accept="image/*" required>
+                                </label>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="form-group3">
-                    <label for="handle">Handle</label>
-                    <input type="text" id="handle" name="handle" required>
-                    <span class="handle-prefix">@</span>
-                </div>
-                <div id="handle-error"></div>
-
                 <div class="next-btn-container">
                     <button type="submit" id="next-btn"><span class="next-btn">Create</span></button>
                 </div>

@@ -12,9 +12,14 @@ main{
     background-image: url(../images/bg2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 150vh;
+    min-height: 93vh;
     width: 100%;
 }
+.main.blur{
+    filter: blur(5px);
+    height: 133vh;
+}
+
 .upload-formm #upload-heading{
     display: flex;
     flex-direction: row;
@@ -26,7 +31,7 @@ main{
     font-size: 28px;
 }
 .upload-formm{
-    background-color: rgba(255, 255, 255, 0.253);
+    background-color: rgba(170, 170, 170, 0.425);
     width: 550px;
     height: 107vh;
     position: absolute;
@@ -37,7 +42,7 @@ main{
     padding: 40px 50px 50px;
     backdrop-filter: blur(2px);
     display: none;
-    
+    z-index: 100000;
 }
 .upload-formm.open{
     display: block;
@@ -155,4 +160,103 @@ input[type="file"]:hover{
 }
 #uploader-form #sbt-btn #upload-btn:hover{
     background-color: rgb(184, 184, 184);
+}
+
+
+/* main data */
+.uploaded-data-container{
+    margin-left: 25%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.uploaded-data-container.open{
+    display: none;
+}
+.uploaded-result{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.336);
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    padding: 10px 20px;
+    backdrop-filter: blur(2px);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.514);
+}
+.uploaded-result:last-child{
+    margin-bottom: 20px;
+}
+.uploaded-result:first-child{
+    margin-top: 40px;
+}
+.uploaded-result:not(:first-child){
+    margin-top: 20px;
+}
+.image-box{
+    display: flex;
+    align-items: center;
+}
+.uploaded-result .image-box img{
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.uploaded-result .song-details{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 60%;
+}
+.uploaded-result .song-details h2{
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+.uploaded-result .song-details p{
+    margin-top: 8px;
+    text-align: justify;
+}
+.uploaded-result .song-details h3{
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: gray;
+    padding: 10px 8px;
+    width: 32%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+}
+.uploaded-result h3 i{
+    margin-right: 10px;
+    font-size: 22px;
+    color: rgb(0, 128, 58);
+
+}
+.uploaded-result h3 a{
+    color: black;
+    text-decoration: none;
+}
+.uploaded-result h3 span{
+    transition: 0.2s ease-in-out;
+}
+.uploaded-result h3:hover{
+    background-color: black;
+}
+.uploaded-result h3:hover span{
+    color: white;
+
+}
+.fa-ellipsis-vertical{
+    margin-left: 80px;
+    font-size: 22px;
+    padding: 10px 6px;
+}
+.footer.blur{
+    filter: blur(5px);
+    z-index: -1;
 }

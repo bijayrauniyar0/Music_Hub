@@ -16,7 +16,9 @@
         </div>
         <div class="bottom-aside">
             <div class="music-player">
-              <div class="music-img"></div>
+            <div class="music-img">
+            <img src="../images/maya.jpg" alt="" id="musicImage">
+              </div>
                 <audio id="myAudio">
                     <source src="" type="audio/mpeg">
                 </audio>

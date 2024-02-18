@@ -2,7 +2,11 @@
 // Start the session
 session_start();
 
-?>
+include '../partials/_dbconnect.php';
+
+$sql = "SELECT * FROM `uploaded_data` LIMIT 5";
+$result = mysqli_query($conn, $sql);
+echo'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +17,11 @@ session_start();
     <title>Loop Verse</title>
 
 </head>
-<body>
-    <?php require '../partials/_nav.php'; ?>
-    <main class="main">
-    <?php require '../partials/_aside.php'; ?>
-    <section id="main-mid">
+<body>';
+    include '../partials/_nav.php'; 
+   echo' <main class="main">';
+    include '../partials/_aside.php'; 
+   echo' <section id="main-mid">
         <div class="main-top">
             <div class="slide" id="slide1">
                 <img id="sliderImage" src="../images/01.jpg" alt="">
@@ -57,151 +61,59 @@ session_start();
             </div>
         </div>
         <h2 class="heading">Top Releases</h2>
-        <div class="main-half">
-            <div class="main-half-container">
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/01.jpeg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 1</h3>
-                        <h4>Arijit Singh</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/02.jpeg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 2</h3>
-                        <h4>Atif Aslam</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/03.jpeg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 3</h3>
-                        <h4>Asha Bhosle</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/04.png" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 4</h3>
-                        <h4>Justin Beiber</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/05.jpeg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 5</h3>
-                        <h4>Arijit Singh</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="main-half-container">
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/06.jpg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 6</h3>
-                        <h4>Drake</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/07.jpg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 7</h3>
-                        <h4>Jeson Deurelo</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/08.png" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 8</h3>
-                        <h4>Luis Fonsi</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/09.jpeg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 9</h3>
-                        <h4>Camella Cabelo</h4>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <div class="img-release">
-                        <img src="../images/thumbnail/10.jpg" class="img-release" alt="">
-                    </div>
-                    <span id="play-hovered"> <i class="fa-solid fa-play"></i></span>
-                    <div class="hovered-details">
-                        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>
-                        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>
-                    </div>
-                    <div class="song-details">
-                        <h3>Song 10</h3>
-                        <h4>DJ Snake</h4>
-                    </div>
-                </div>
-            </div>
+        <div class="main-half">';
+       
+        
+if (mysqli_num_rows($result) > 0) {
+    echo '<div class="main-half-container">';
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="img-container">';
+        echo '    <div class="img-release">';
+        echo '        <img src="../images/' . $row['thumbnail'] . '" class="img-release" alt="">';
+        echo '    </div>';
+        echo '    <span id="play-hovered" onclick="playNow(\''.$row['audio'].'\'); songDisplay(\''.$row['title'].'\'); imgDisplay(\''.$row['thumbnail'].'\')"> <i class="fa-solid fa-play"></i></span>';
+        echo '    <div class="hovered-details">';
+        echo '        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>';
+        echo '        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>';
+        echo '    </div>';
+        echo '    <div class="song-details">';
+        echo '        <h3>' . $row['title'] . '</h3>'; // Change this to the appropriate column name
+        echo '        <h4>' . $row['Name'] . '</h4>'; // Change this to the appropriate column name
+        echo '    </div>';
+        echo '</div>';
+    }
+    echo '</div>'; // Close the first container here
+} else {
+    echo "No records found";
+}
+
+// Fetching data from the second query
+$sql6 = "SELECT * FROM `uploaded_data` LIMIT 5, 5";
+$result6 = mysqli_query($conn, $sql6);
+
+if (mysqli_num_rows($result6) > 0) {
+    echo '<div class="main-half-container">'; // Start the second container here
+    while ($row6 = mysqli_fetch_assoc($result6)) {
+        echo '<div class="img-container">';
+        echo '    <div class="img-release">';
+        echo '        <img src="../images/' . $row6['thumbnail'] . '" class="img-release" alt="">';
+        echo '    </div>';
+        echo '    <span id="play-hovered" onclick="playNow(\''.$row6['audio'].'\'); songDisplay(\''.$row6['title'].'\'); imgDisplay(\''.$row6['thumbnail'].'\')"> <i class="fa-solid fa-play"></i></span>';
+        echo '    <div class="hovered-details">';
+        echo '        <h4><i class="fa-regular fa-heart"></i> 1,542</h4>';
+        echo '        <h4><i class="fa-solid fa-headphones-simple"></i> 2,713</h4>';
+        echo '    </div>';
+        echo '    <div class="song-details">';
+        echo '        <h3>' . $row6['title'] . '</h3>'; // Change this to the appropriate column name
+        echo '        <h4>' . $row6['Name'] . '</h4>'; // Change this to the appropriate column name
+        echo '    </div>';
+        echo '</div>';
+    }
+    echo '</div>';
+} else {
+    echo "No records found";
+}
+?>
         </div>
         <div class="main-quarter">
             <div class="artists-heading">
@@ -275,289 +187,140 @@ session_start();
 
         </div>
         <div class="main-quarter1">
-            <div class="list-box">
-                <h2 class="heading"><i class="fa-solid fa-heart"></i>Top Rated</h2>
-                <div class="list-holder">
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/thumbnail/01.jpeg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Tum Hi Ho</h3>
-                                <h4>Arijit Singh</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:38</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/tu.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Tu Jaane Na</h3>
-                                <h4>Atif Aslam</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:18</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/shape.jpeg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Shape of You</h3>
-                                <h4>Ed Sheeran</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:08</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/artists/justin.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Baby</h3>
-                                <h4>Justin Beiber</h4>
-                            </div>
-                            <div class="time">
-                                <p>2:48</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/thumbnail/08.png" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Despacito</h3>
-                                <h4>Luis & Yankee</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:41</p>
-                            </div>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-            <div class="list-box">
-                <h2 class="heading"><i class="fa-solid fa-record-vinyl"></i>Most Played</h2>
-                <div class="list-holder">
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/thumbnail/08.png" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Despacito</h3>
-                                <h4>Luis & Yankee</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:41</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/kesariya.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Kesariya</h3>
-                                <h4>Arijit Singh</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:08</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/tuhaikahan.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Tu hai kahan</h3>
-                                <h4>Usma Ali</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:12</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/artists/yoyo.avif" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Desi Kalakar</h3>
-                                <h4>Honey Singh</h4>
-                            </div>
-                            <div class="time">
-                                <p>6:15</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/afreen.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Afreen Afreen</h3>
-                                <h4>Rahat Ali</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:38</p>
-                            </div>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-            <div class="list-box">
-                <h2 class="heading"><i class="fa-solid fa-music"></i>New Releases</h2>
-                <div class="list-holder">
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/sakhiyaan.webp" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Sakhiyaan</h3>
-                                <h4>Maninder Buttar</h4>
-                            </div>
-                            <div class="time">
-                                <p>2:58</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/batoonmein.jpg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Teri Baaton Mein</h3>
-                                <h4>Mitraz</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:38</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/kolaveri.jpeg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Kolaveri Di</h3>
-                                <h4>Dhanush</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:08</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/songs/zara.jpeg" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Zara Sa</h3>
-                                <h4>K.K</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:48</p>
-                            </div>
-                        </div>   
-                    </div>
-                    <hr>
-                    <div class="list-detail">
-                        <div class="songs-full-details">
-                            <div class="list-img">
-                                <div class="top-songs-img">
-                                    <img src="../images/thumbnail/08.png" alt="">
-                                </div>
-                                <a href="" id="song-play"><i class="fa-solid fa-play"></i></a>
-                            </div>
-                            <div class="list-text">
-                                <h3>Despacito</h3>
-                                <h4>Luis & Yankee</h4>
-                            </div>
-                            <div class="time">
-                                <p>3:41</p>
-                            </div>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php 
+    $sql1 = "SELECT * FROM `uploaded_data` LIMIT 5, 5";
+    $result1 = mysqli_query($conn, $sql1);
+    $total_rows = mysqli_num_rows($result1) ;
+    // First list-box
+    echo '<div class="list-box">';
+    if ($total_rows > 0) {
+        echo '<h2 class="heading"><i class="fa-solid fa-heart"></i>Top Rated</h2>';
+        
+        // First Row
+        echo '<div class="row">';
+        $current_row = 0;
+        while ($row1 = mysqli_fetch_assoc($result1)) {
+            $current_row++;
+            echo '<div class="list-holder">';
+            echo '    <div class="list-detail">';
+            echo '        <div class="songs-full-details">';
+            echo '            <div class="list-img">';
+            echo '                <img src="../images/' . $row1['thumbnail'] . '" alt="">';
+            echo '                <div class="top-songs-img">';
+            echo '                    <a id="song-play"  onclick="playNow(\''.$row1['audio'].'\'); songDisplay(\''.$row1['title'].'\'); imgDisplay(\''.$row1['thumbnail'].'\');"><i class="fa-solid fa-play"></i></a>';
+            echo '                </div>';
+            echo '            </div>';
+            echo '            <div class="list-text">';
+            echo '                <h3>' . $row1['title'] . '</h3>';
+            echo '<h4><a href="artist_details.php?name=' . urlencode($row1['Name']) . '">' . $row1['Name'] . '</a></h4>';
+            echo '            </div>';
+            echo '            <div class="time">';
+            echo '                <p>3:38</p>';
+            echo '            </div>';
+            echo '        </div>';
+            echo '    </div>';
+            if ($current_row < $total_rows) {
+                echo '    <hr>';
+            }
+        
+            echo '</div>';
+        }
+        echo '</div>'; // End of first row
+        
+    } else {
+        echo 'data not fetched';
+    }
+    echo '</div>'; 
+
+    $sql2 = "SELECT * FROM `uploaded_data` LIMIT 8, 5";
+    $result2 = mysqli_query($conn, $sql2);
+
+    echo '<div class="list-box">';
+    if (mysqli_num_rows($result2) > 0) {
+        echo '<h2 class="heading"><i class="fa-solid fa-record-vinyl"></i>Most Played</h2>';
+        
+        // Second Row
+        echo '<div class="row">';
+        $current_row2  = 0;
+        while ($row2 = mysqli_fetch_assoc($result2)) {
+
+            $current_row2++;
+            echo '<div class="list-holder">';
+            echo '    <div class="list-detail">';
+            echo '        <div class="songs-full-details">';
+            echo '            <div class="list-img">';
+            echo '                <img src="../images/' . $row2['thumbnail'] . '" alt="">';
+            echo '                <div class="top-songs-img">';
+            echo '                    <a id="song-play"  onclick="playNow(\''.$row2['audio'].'\'); songDisplay(\''.$row2['title'].'\'); imgDisplay(\''.$row2['thumbnail'].'\');"><i class="fa-solid fa-play"></i></a>';            echo '                </div>';
+            echo '            </div>';
+            echo '            <div class="list-text">';
+            echo '                <h3>' . $row2['title'] . '</h3>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row2['handle']) . '">' . $row2['Name'] . '</a></h4>';
+            echo '            </div>';
+            echo '            <div class="time">';
+            echo '                <p>3:38</p>';
+            echo '            </div>';
+            echo '        </div>';
+            echo '    </div>';
+            if ($current_row2 < mysqli_num_rows($result2)) {
+                echo '    <hr>';
+            }
+            echo '</div>';
+        }
+        echo '</div>'; // End of second row
+        
+    } else {
+        echo 'data not fetched';
+    }
+    echo '</div>'; // End of second list-box
+  
+    echo '<div class="list-box">';
+    
+    $sql3 = "SELECT * 
+    FROM uploaded_data 
+    ORDER BY uploaded_at DESC 
+    LIMIT 5";
+    $result3 = mysqli_query($conn, $sql3);
+    if (mysqli_num_rows($result1) > 0) {
+        echo '<h2 class="heading"><i class="fa-solid fa-music"></i>Latest Releases</h2>';
+        
+        // Second Row
+        echo '<div class="row">';
+        $current_row3  = 0;
+        
+        while ($row3 = mysqli_fetch_assoc($result3)) {
+                $current_row3++;
+            echo '<div class="list-holder">';
+            echo '    <div class="list-detail">';
+            echo '        <div class="songs-full-details">';
+            echo '            <div class="list-img">';
+            echo '                <img src="../images/' . $row3['thumbnail'] . '" alt="">';
+            echo '                <div class="top-songs-img">';
+            echo '                    <a id="song-play"  onclick="playNow(\''.$row3['audio'].'\'); songDisplay(\''.$row3['title'].'\'); imgDisplay(\''.$row3['thumbnail'].'\');"><i class="fa-solid fa-music"></i></a>';            echo '                </div>';
+            echo '            </div>';
+            echo '            <div class="list-text">';
+            echo '                <h3>' . $row3['title'] . '</h3>';
+            echo '<h4><a href="artist_details.php?name=' . urlencode($row3['Name']) . '">' . $row3['Name'] . '</a></h4>';
+            echo '            </div>';
+            echo '            <div class="time">';
+            echo '                <p>3:38</p>';
+            echo '            </div>';
+            echo '        </div>';
+            echo '    </div>';
+            if ($current_row3 < mysqli_num_rows($result1) ) {
+                echo '    <hr>';
+            }
+            echo '</div>';
+        }
+        echo '</div>'; // End of second row
+        
+    } else {
+        echo 'data not fetched';
+    }
+    echo '</div>'; // End of second list-box
+    ?>
+</div>
+
     </section>
 </main>
 <?php require '../partials/_footer.php'; ?>

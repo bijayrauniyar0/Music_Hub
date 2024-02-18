@@ -1,22 +1,100 @@
 var audio = document.getElementById("myAudio");
+var musicImage = document.getElementById("musicImage");
 var songSlider = document.getElementById("songSlider");
 var songNameDisplay = document.getElementById("songdisplay");
 var pauseBtn = document.getElementById("pause-btn");
 var playBtn = document.getElementById("play-btn");
-var songNames = []; // Define an empty array for song names
+var songNames = []; 
 var currentSongIndex = 0;
-var songs= [];
+var currentSongName;
 
+function extractFileNameFromURL(url) {
+    // Using the URL constructor to get pathname
+    var pathname = new URL(url).pathname;
+
+    // Using regular expression to extract filename
+    var filename = pathname.match(/\/([^\/?#]+)$/);
+    
+    // Check if the match is found
+    if (filename && filename.length > 1) {
+        return filename[1];
+    } else {
+        // Return the original URL if no filename is found
+        return url;
+    }
+}
 function playAudio() {
     audio.play();
     pauseBtn.style.display = "inline-block";
     playBtn.style.display = "none";
+    songSlider.max = audio.duration;
+    currentSongName = audio.src;
+    var filename = extractFileNameFromURL(currentSongName);
+    handleName(filename)
+
+    
 }
+
+
+function handleName(nameThumbnail){
+
+    // this fn sends data to php, php gets data fetches data from db then sends back to js
+        var xhr = new XMLHttpRequest();
+        var data = {
+            key1: nameThumbnail
+        };
+        var nameMe;
+        var jsonData = JSON.stringify(data);
+        var url = 'http://localhost/musicPlayer/partials/fetch_details.php'; // Update the URL accordingly
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    nameMe = xhr.responseText;
+                    // Call a function to handle the response
+                    handleResponse(nameMe);
+                } else {
+                    console.error('AJAX request failed');
+                }
+            }
+        };
+        xhr.send(jsonData);
+}
+
+// Define a function to handle the response
+function handleResponse(response) {
+    console.log("Data is:", response);
+    imgDisplay(response)
+}
+
+
+
+
 
 function pauseAudio() {
     audio.pause();
     playBtn.style.display = "inline-block";
     pauseBtn.style.display = "none";
+}
+function playNow(audioFileName) {
+    audio.src = "../songs/" + audioFileName; // Assuming your audio files are located in a folder named "songs"
+    colordefault();
+    songDisplay(); 
+    playAudio();
+    updateSliderColor();
+    // imgDisplay();
+    
+}
+function imgDisplay(imageName){
+    musicImage.src = "../images/"+imageName;
+
+
+}
+function songDisplay(songName) {
+    songNameDisplay.textContent = songName;
+    songSlider.max = audio.duration;
 }
 
 function previousSong() {
@@ -61,8 +139,7 @@ songSlider.addEventListener('input', function () {
 
 function updateSong() {
     audio.src = songNames[currentSongIndex];
-    songNameDisplay.textContent = songs[currentSongIndex];
-    songSlider.max = audio.duration;
+    
 }
 
 function colordefault() {
@@ -81,6 +158,10 @@ window.onload = function () {
     updateSong();
     updateSliderColor();
 };
+
+
+//   fetching songs from the storage
+
 document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -91,26 +172,13 @@ document.addEventListener("DOMContentLoaded", function () {
             songNames = fileNames.map(function (fileName) {
                 return "../songs/" + fileName;
             });
-
-            // Modify file names to remove all symbols, replace underscores with blank spaces,
-            // and limit characters until the 4th underscore
-            songs = fileNames.map(function (fileName) {
-                // Remove file extension
-                var fileNameWithoutExtension = fileName.split('.').slice(0, -1).join('.');
-            
-                var modifiedName = fileNameWithoutExtension.replace(/01[^\w]/g, ''); // Remove all symbols
-                var modifiedNameWithSpaces = modifiedName.replace(/_/g, ' '); // Replace underscores with blank spaces
-                var parts = modifiedNameWithSpaces.split(' ');
-                var modifiedNameLimited = parts.slice(0, 4).join(' ');
-                return modifiedNameLimited // Limit to first 10 characters
-            });
             
 
             // Log the songsName and songs arrays for testing
             console.log(songNames);
-            console.log(songs);
         }
     };
     xhr.open("GET", "../partials/get_songs.php", true);
     xhr.send();
 });
+

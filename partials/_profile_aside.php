@@ -12,7 +12,10 @@
         </div>
         <div class="bottom-aside">
             <div class="music-player">
-              <div class="music-img"></div>
+              <div class="music-img">
+                <img src="../images/maya.jpg" alt="" id="musicImage">
+              </div>
+
                 <audio id="myAudio">
                     <source src="" type="audio/mpeg">
                 </audio>
@@ -25,7 +28,7 @@
                         <h3 onclick="previousSong()"><i class="fa-solid fa-backward-step"></i></h3>
                         <h3 id="play-btn" onclick="playAudio()"><i class="fa-solid fa-play"></i></h3>
                         <h3 id="pause-btn" onclick="pauseAudio()"><i class="fa-solid fa-pause"></i></i></h3>
-                        <h3 onclick="nextSong()"><i class="fa-solid fa-forward-step"></i></h3>
+                        <h3 id="pause-btn" onclick="nextSong()"><i class="fa-solid fa-forward-step"></i></i></h3>
                     </div>
                 </div>
               
@@ -33,5 +36,6 @@
             
         </div>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/script.js"></script>
 
