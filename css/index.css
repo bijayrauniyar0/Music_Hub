@@ -194,12 +194,14 @@ main{
     padding: 4px;
     transition: 0.2s ease-in-out;
 }
-.song-details h4{
+.song-details h4 a{
+    color: rgba(207, 206, 206, 0.753);
+    text-decoration: none;
     padding: 4px;
     font-weight: 500;
     transition: 0.2s ease-in-out;
 }
-.song-details h3:hover, .song-details h4:hover{
+.song-details h3:hover, .song-details h4 a:hover{
     color: rgb(35, 113, 133);
     cursor: pointer;
 }

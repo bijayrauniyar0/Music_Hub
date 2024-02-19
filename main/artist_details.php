@@ -59,7 +59,7 @@ if ($result1->num_rows > 0) {
                     <p>'.$upload_date.'</p>
                 </div>
                 <div class="play">';
-                echo'<h3 class="play-now" onclick="playNow(\''.$row1['audio'].'\'); songDisplay(\''.$row1['title'].'\'); imgDisplay(\''.$row1['thumbnail'].'\');"><i class="fa-solid fa-circle-play"></i><span>Play Now</span></h3>';
+                echo'<h3 class="play-now" onclick="playNow(\''.$row1['audio'].'\'); songDisplay(\''.$row1['title'].'\'); imgDisplay(\''.$row1['thumbnail'].'\');"><i class="fa-solid fa-circle-play"></i><a>Play Now</a></h3>';
                 echo'</div>
             </div>
         </div>

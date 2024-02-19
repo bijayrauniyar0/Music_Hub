@@ -78,7 +78,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '    </div>';
         echo '    <div class="song-details">';
         echo '        <h3>' . $row['title'] . '</h3>'; // Change this to the appropriate column name
-        echo '        <h4>' . $row['Name'] . '</h4>'; // Change this to the appropriate column name
+        echo '<h4><a href="artist_details.php?handle=' . urlencode($row['handle']) . '">' . $row['Name'] . '</a></h4>';
         echo '    </div>';
         echo '</div>';
     }
@@ -105,7 +105,7 @@ if (mysqli_num_rows($result6) > 0) {
         echo '    </div>';
         echo '    <div class="song-details">';
         echo '        <h3>' . $row6['title'] . '</h3>'; // Change this to the appropriate column name
-        echo '        <h4>' . $row6['Name'] . '</h4>'; // Change this to the appropriate column name
+        echo '<h4><a href="artist_details.php?handle=' . urlencode($row6['handle']) . '">' . $row6['Name'] . '</a></h4>';
         echo '    </div>';
         echo '</div>';
     }
@@ -212,7 +212,7 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row1['title'] . '</h3>';
-            echo '<h4><a href="artist_details.php?name=' . urlencode($row1['Name']) . '">' . $row1['Name'] . '</a></h4>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row1['handle']) . '">' . $row1['Name'] . '</a></h4>';
             echo '            </div>';
             echo '            <div class="time">';
             echo '                <p>3:38</p>';
@@ -300,7 +300,7 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row3['title'] . '</h3>';
-            echo '<h4><a href="artist_details.php?name=' . urlencode($row3['Name']) . '">' . $row3['Name'] . '</a></h4>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row3['handle']) . '">' . $row3['Name'] . '</a></h4>';
             echo '            </div>';
             echo '            <div class="time">';
             echo '                <p>3:38</p>';
