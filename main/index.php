@@ -296,7 +296,7 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            <div class="list-img">';
             echo '                <img src="../images/' . $row3['thumbnail'] . '" alt="">';
             echo '                <div class="top-songs-img">';
-            echo '                    <a id="song-play"  onclick="playNow(\''.$row3['audio'].'\'); songDisplay(\''.$row3['title'].'\'); imgDisplay(\''.$row3['thumbnail'].'\');"><i class="fa-solid fa-music"></i></a>';            echo '                </div>';
+            echo '                    <a id="song-play"  onclick="playNow(\''.$row3['audio'].'\'); songDisplay(\''.$row3['title'].'\'); imgDisplay(\''.$row3['thumbnail'].'\');"><i class="fa-solid fa-play"></i></a>';            echo '                </div>';
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row3['title'] . '</h3>';

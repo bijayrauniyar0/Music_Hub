@@ -40,8 +40,8 @@ echo '
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <form action="../partials/search_results.php" method="GET"  id="search-form">
-                 <input type="text" class="search" placeholder="Search Artits, Albums...">
+                <form action="../main/search_results.php" method="GET"  id="search-form">
+                 <input type="text" name="query" class="search" placeholder="Search Artits, Albums...">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>

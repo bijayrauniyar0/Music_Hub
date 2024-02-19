@@ -59,6 +59,7 @@ nav .mid{
     background-color: transparent;
     border: none;
 }
+
 .mid #search-form button i{
     background-color: none;
     font-size: 20px;
@@ -73,7 +74,13 @@ nav .mid{
     border: none;
     background-color: rgba(255, 255, 255, 0.466);
     backdrop-filter: blur(3px);
+    color: white;
     
+}
+input[type="text"]{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
 }
 ::placeholder{
     padding: 0 0 0 8px;

@@ -31,6 +31,7 @@ function playAudio() {
     currentSongName = audio.src;
     var filename = extractFileNameFromURL(currentSongName);
     handleName(filename)
+    
 
     
 }
@@ -151,12 +152,14 @@ function updateSliderColor() {
     const color = `linear-gradient(to right, rgb(54, 54, 54) ${currentPosition}%, rgb(214, 214, 214) ${currentPosition}%)`;
     songSlider.style.background = color;
 }
-
+defaultSong = "Apna_Bana_Le.mp3"
 window.onload = function () {
     pauseBtn.style.display = "none";
     playBtn.style.display = "block";
     updateSong();
     updateSliderColor();
+    audio.src = "../songs/"+defaultSong;
+
 };
 
 
