@@ -17,9 +17,9 @@ body{
     
 }
 .image-box img{
-    height: 100%;
+    aspect-ratio: 16/8;
     width: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     border-radius: 10px;
     object-position: top;
 
@@ -35,6 +35,26 @@ body{
 .image-box .artist-detail p{
     font-size: 18px;
 }
+.title-box .uploaded-heading{
+   position: relative;
+   top: 60px;
+   left: 30px;
+   margin-bottom: 30px;
+   color: rgb(235, 235, 235);
+   text-shadow: 1.5px 1.5px 3px rgba(185, 185, 185, 0.596);
+   font-size: 2.5rem;
+   font-weight: 800;
+}
+.title-box .horizental-line{
+    width: 19vw;
+    height: 5px;
+    background-color: rgb(11, 133, 92);
+    position: relative;
+    top: 35px;
+    border-radius: 20px;
+    left: 30px;
+
+}
 .song-main{
     display: flex;
     justify-content: center;
@@ -46,10 +66,12 @@ body{
     display: flex;
     flex-direction: row;
     position: relative;
-    top: 30px;
+    top: 80px;
     padding: 6px 8px;
     
 }
+
+
 .numbers{
     display: flex;
     align-items: center;
@@ -123,7 +145,7 @@ body{
 }
 .main-container hr{
     position: relative;
-    top: 30px;
+    top: 75px;
     width: 80%;
     right: 30px;
     border: none;

@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="../css/profile_aside.css">
     <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
 
-
 <section id="aside">
         <div class="top-aside">
             <ul>
                 <li><a href="../main/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="#"><i class="fa-solid fa-music"></i>My Audios</a></li>
+                <li><a href="../main/studio.php"><i class="fa-solid fa-music"></i>My Audios</a></li>
                 <li><a href="../main/edit.php"><i class="fa-solid fa-user-pen"></i>Edit</a></li>
             </ul>
         </div>
@@ -36,6 +35,8 @@
             
         </div>
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="../js/script.js"></script>
+<script src="../js/active_nav.js"></script>
+
 

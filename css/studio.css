@@ -8,16 +8,17 @@ body{
 }
 main{
     display: flex;
-    margin-top: 50px;
     background-image: url(../images/bg2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 93vh;
+    height: auto;
     width: 100%;
 }
 .main.blur{
-    filter: blur(5px);
+    filter: blur(1px);
     height: 133vh;
+    position: fixed;
 }
 
 .upload-formm #upload-heading{
@@ -32,17 +33,19 @@ main{
 }
 .upload-formm{
     background-color: rgba(170, 170, 170, 0.425);
-    width: 550px;
-    height: 107vh;
-    position: absolute;
-    top: 15%;
-    left: 40%;
+    width: 700px;
+    height: 67vh;
+    position: fixed;
+    left: 65%;
+    top: 52%;
+    transform: translate(-50%,-50%);
     border-radius: 20px;
     transition: 0.1s ease-in-out;
     padding: 40px 50px 50px;
     backdrop-filter: blur(2px);
     display: none;
-    z-index: 100000;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .upload-formm.open{
     display: block;
@@ -77,9 +80,9 @@ main{
 }
 .details-box textarea{
     max-height: 100px;
-    max-width: 90%;
+    max-width: 100%;
     min-height: 100px;
-    min-width: 90%;
+    min-width: 100%;
 }
 #genre option{
     background-color: rgba(128, 128, 128, 0.562);
@@ -149,25 +152,34 @@ input[type="file"]:hover{
     justify-content: center;
     align-items: center;
 }
+
 #uploader-form #sbt-btn #upload-btn{
-    background-color: gray;
-    width: 100px;
-    color: black;
-    font-size: 22px;
-    font-weight: 500;
+    background-color: rgb(16, 141, 93);
+    width: 130px;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 7px;
+    padding: 8px 20px;
+    text-align: center;
+    border: none;
+
     
 
 }
 #uploader-form #sbt-btn #upload-btn:hover{
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(13, 141, 66);
 }
-
+/*---------------------------------------------------------------------------------------------- */
+/*---------------------------------------------------------------------------------------------- */
+/*---------------------------------------------------------------------------------------------- */
 
 /* main data */
 .uploaded-data-container{
     margin-left: 25%;
     width: 70%;
     display: flex;
+    height: auto;
     flex-direction: column;
 }
 .uploaded-data-container.open{
@@ -186,10 +198,10 @@ input[type="file"]:hover{
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.514);
 }
 .uploaded-result:last-child{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .uploaded-result:first-child{
-    margin-top: 40px;
+    margin-top: 60px;
 }
 .uploaded-result:not(:first-child){
     margin-top: 20px;
@@ -231,6 +243,7 @@ input[type="file"]:hover{
     justify-content: center;
     transition: 0.2s ease-in-out;
 }
+
 .uploaded-result h3 i{
     margin-right: 10px;
     font-size: 22px;
@@ -259,4 +272,17 @@ input[type="file"]:hover{
 .footer.blur{
     filter: blur(5px);
     z-index: -1;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+.upload-formm.open + .overlay {
+    display: block;
 }

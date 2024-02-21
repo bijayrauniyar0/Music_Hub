@@ -1,12 +1,12 @@
 var uploader = document.querySelector('.upload-formm')
 var data_container = document.querySelector('.uploaded-data-container')
 
-document.addEventListener("DOMContentLoaded", function() {
+function openUploader(){
     uploader.classList.toggle('open');
     data_container.classList.toggle('open');
     document.querySelector('.main').classList.add('blur');
     document.querySelector('.footer').style.display = 'none'
-});
+}
 
 function closeUploader(){
     uploader.classList.remove('open')
@@ -15,6 +15,3 @@ function closeUploader(){
     document.querySelector('.footer').style.display = 'block'
 
 }
-
-
-

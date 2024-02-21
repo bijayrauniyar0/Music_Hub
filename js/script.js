@@ -52,7 +52,6 @@ function handleName(nameThumbnail){
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    console.log(xhr.responseText);
                     nameMe = xhr.responseText;
                     // Call a function to handle the response
                     handleResponse(nameMe);
@@ -66,7 +65,6 @@ function handleName(nameThumbnail){
 
 // Define a function to handle the response
 function handleResponse(response) {
-    console.log("Data is:", response);
     imgDisplay(response)
 }
 
@@ -126,6 +124,7 @@ function seeksong() {
 audio.addEventListener('timeupdate', function () {
     var currentTime = audio.currentTime;
     var duration = audio.duration;
+    console.log(audio.duration)
     if (!isNaN(duration)) {
         var progress = (currentTime / duration) * 100;
         songSlider.value = currentTime;
@@ -178,10 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
 
             // Log the songsName and songs arrays for testing
-            console.log(songNames);
         }
     };
     xhr.open("GET", "../partials/get_songs.php", true);
     xhr.send();
 });
-

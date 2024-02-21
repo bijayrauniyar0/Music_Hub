@@ -173,6 +173,10 @@ nav .right .newMember h2:hover{
     flex-direction: row;
     color: white;
 }
+.fa-user{
+    font-size: 18px;
+    color: gray;
+}
 .user{
     position: absolute;
     left: 15%;
@@ -407,3 +411,4 @@ label{
     display: flex;
     flex-direction: row;
 }
+

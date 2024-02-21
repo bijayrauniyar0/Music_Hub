@@ -42,6 +42,13 @@ if ($result1->num_rows > 0) {
     $i=0;
     while ($row1 = mysqli_fetch_assoc($result1)) {
         $i++;
+        if($i==1){
+        echo '
+        <div class="title-box">
+            <h1 class="uploaded-heading"> Songs from '.$row1['Name'].'</h1>
+            <div class="horizental-line"></div>
+        </div>';
+        }
         $datetime_value = $row1['uploaded_at'];
         $upload_date= date('Y-m-d', strtotime($datetime_value));
 

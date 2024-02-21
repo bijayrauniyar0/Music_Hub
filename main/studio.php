@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true )  {
+    header("location: ../main/sign-in.php");
+    exit;
+}
 
 include '../partials/_dbconnect.php';
 // Check if form is submitted
@@ -98,14 +102,15 @@ echo '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/studio.css">
-    <title>Document</title>
+    <title>Studio</title>
 </head>
 <body>';
    include '../partials/_nav.php';
-    echo '<main class="main">';
-       include '../partials/_profile_aside.php';
-       $numUploadedData = mysqli_num_rows($resultUploadedData);
-       echo '<div class="uploaded-data-container">';
+   echo '<main class="main">';
+   include '../partials/_profile_aside.php';
+    $numUploadedData = mysqli_num_rows($resultUploadedData);
+    echo '<div class="uploaded-data-container">';
+    
 
             if ($numUploadedData > 0) {
                 while($row = mysqli_fetch_assoc($resultUploadedData)){
@@ -127,6 +132,8 @@ echo '
             
 
 ?>
+        <div class="overlay"></div>
+
 </main>
         <div class="upload-formm">
             <span id="upload-heading" class="create-heading">
@@ -163,7 +170,7 @@ echo '
                     <div class="thumbnail-image">
                         <h2>Thumbnail</h2>
                         <label for="image" class="file-input-container">
-                            <img src="../images/camera-icon.png" alt="Camera Icon" class="camera-icon">
+                            <img src="../images/camera-icon.png" alt="Camera Icon" class="camera-icon" id="thumbnailPreview">
                             <input type="file" name="image" id="image" class="file-input" accept="image/*" required>
                         </label>
                         
@@ -184,6 +191,7 @@ echo '
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="../js/studio.js"></script>
         <script src="../js/script.js"></script>
+       
 
 </body>
 </html>

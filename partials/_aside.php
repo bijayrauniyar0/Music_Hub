@@ -1,17 +1,27 @@
-    <link rel="stylesheet" href="../css/aside.css">
-    <script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
+<?php
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true )  {
+    $loggedin = true;
+}
+?>
+<link rel="stylesheet" href="../css/aside.css">
+<script src="https://kit.fontawesome.com/2f01e0402b.js" crossorigin="anonymous"></script>
+    
 
 
 <section id="aside">
         <div class="top-aside">
             <ul>
                 <li><a href="../main/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="../main/studio.php"><i class="fa-solid fa-house"></i>Studio</a></li>
-                <li><a href=""><i class="fa-solid fa-compact-disc"></i>Albums</a></li>
-                <li><a href=""><i class="fa-solid fa-microphone"></i>Artists</a></li>
-                <li><a href=""><i class="fa-solid fa-fire"></i>Most Viewed</a></li>
-                <li><a href=""><i class="fa-solid fa-jet-fighter-up"></i>Top Releases</a></li>
-                <li><a href=""><i class="fa-solid fa-g"></i>Genre</a></li>
+                <?php
+                if($loggedin){
+                    echo'<li><a href="../main/studio.php"><i class="fa-solid fa-house"></i>Studio</a></li>';
+                }
+                ?>
+                <li><a href="../main/albums.php"><i class="fa-solid fa-compact-disc"></i>Albums</a></li>
+                <li><a href="yy.php"><i class="fa-solid fa-microphone"></i>Artists</a></li>
+                <li><a href="yy.php"><i class="fa-solid fa-fire"></i>Most Viewed</a></li>
+                <li><a href="yy.php"><i class="fa-solid fa-jet-fighter-up"></i>Top Releases</a></li>
+                <li><a href="yy.php"><i class="fa-solid fa-g"></i>Genre</a></li>
             </ul>
         </div>
         <div class="bottom-aside">
@@ -40,4 +50,5 @@
         </div>
     </section>
 <script src="../js/script.js"></script>
+<script src="../js/active_nav.js"></script>
 

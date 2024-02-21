@@ -32,7 +32,7 @@ main{
 
 .main-top{
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     
 }
 .main-top .slide{
@@ -51,44 +51,67 @@ main{
     
 }
 .main-top .slide .image-details{
-    width: 28%;
+    width: 38%;
     position: relative;
     bottom: 90%;
-    color: white;
+    color: rgb(0, 0, 0);
     left: 30px;
     display: flex;
     flex-direction: column;
+    
 }
 .image-details h2{
     margin: 20px 10px;
     font-size: 2rem;
+    font-weight: 700;
+    text-shadow:
+    -2px -2px 2px#ffffff, 
+    2px -2px 2px #ffffff, 
+    -2px 2px 2px #ffffff, 
+    2px 2px 2px #ffffff;
 }
 .image-details p{
     margin: 20px 10px;
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+    bottom: 30px;
+    text-shadow:
+    -2px -2px 2px#ffffff, 
+    2px -2px 2px #ffffff, 
+    -2px 2px 2px #ffffff, 
+    2px 2px 2px #ffffff;
 }
-.image-details h3{
+.image-details .play-now{
     margin-top: 35%;
     margin-left: 10%;
     border-radius: 5px;
     font-size: 26px;
     border: 2px solid black;
-    width: 70%;
-    padding: 6px 8px;
+    width: 55%;
+    text-align: center;
+    padding: 8px 10px;
+    transition: .2s ease-in-out;
+    background-color: rgba(110, 110, 110, 0.425);
+    backdrop-filter: blur(10px);
 
 }
-.image-details h3 a{
-    color: white;
+.image-details .play-now a{
+    color: rgb(0, 0, 0);
     text-decoration: none;
     text-align: center;
+    transition: .4s ease-in-out;
 }
-.image-details h3 i{
+.image-details .play-now i{
     margin-right: 10px;
     padding: 4px 2px;
 }
-.image-details h3:hover{
-    background-color: rgba(12, 12, 12, 0.884);
+.image-details .play-now:hover{
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
+}
+.image-details .play-now:hover a{
+    color: rgb(2, 146, 79);
 }
 .perv-next{
     color: white;
@@ -265,7 +288,11 @@ main{
     text-align: center;
     color: white;
     padding: 6px 2px;
+}
+.artists-box h3 a{
     transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: white;
 }
 .artists-box:hover img{
     transform: scale(1.1);
@@ -273,7 +300,7 @@ main{
     
 }
 
-.artists-box:hover h3{
+.artists-box:hover h3 a{
     color: rgb(35, 113, 133);
 }
 .artists::-webkit-scrollbar{

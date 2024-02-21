@@ -21,49 +21,39 @@ echo'
     include '../partials/_nav.php'; 
    echo' <main class="main">';
     include '../partials/_aside.php'; 
-   echo' <section id="main-mid">
-        <div class="main-top">
-            <div class="slide" id="slide1">
-                <img id="sliderImage" src="../images/01.jpg" alt="">
-                <div class="image-details">
-                    <h2>Shape of You</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, voluptates odio excepturi natus tenetur dolore.</p>
-                    <h3 class="play-now"> <a href=""><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>
-                </div>
-            </div>
-            <div class="slide" id="slide2">
-                <img id="sliderImage" src="../images/02.jpg" alt="">
-                <div class="image-details">
-                    <h2>Love Yourself</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, voluptates odio excepturi natus tenetur dolore.</p>
-                    <h3 class="play-now"> <a href=""><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>
-                </div>
-            </div>
-            <div class="slide" id="slide3">
-                <img id="sliderImage" src="../images/03.jpg" alt="">
-                <div class="image-details">
-                    <h2>Tum Hi Ho</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, voluptates odio excepturi natus tenetur dolore.</p>
-                    <h3 class="play-now"> <a href=""><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>
-                </div>
-            </div>
-            <div class="slide" id="slide4">
-                <img id="sliderImage" src="../images/05.jpg" alt="">
-                <div class="image-details">
-                    <h2>Meri Aashiqui</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, voluptates odio excepturi natus tenetur dolore.</p>
-                    <h3 class="play-now"> <a href=""><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>
-                </div>
-            </div>
-            <div class="perv-next">
+   echo' <section id="main-mid">';
+   $sql7 = "SELECT * FROM `uploaded_data` ORDER BY RAND() LIMIT 4";
+   $result7 = mysqli_query($conn, $sql7);        
+   echo' <div class="main-top">';
+   if (mysqli_num_rows($result7) > 0) {
+            $ct=0;
+            while ($row7 = mysqli_fetch_assoc($result7)) {
+                $ct++;
+                echo' 
+                <div class="slide" id="slide'.$ct.'">
+                    <img id="sliderImage" src="../images/' . $row7['thumbnail'] . '" class="img-release" alt="">                
+                    <div class="image-details">
+                        <h2>' . $row7['title'] . '</h2>
+                        <p>' . $row7['Name'] . '</p> ';
+                        echo '
+                        <h3 class="play-now" onclick="playNow(\''.$row7['audio'].'\'); songDisplay(\''.$row7['title'].'\'); imgDisplay(\''.$row7['thumbnail'].'\')"> <a><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>';
+                    echo'</div>';
+                echo'</div>';
+            }
+        
+            }
+            echo '<div class="perv-next">
                 <span id="perv" onclick="perv()"><i class="fa-solid fa-caret-left"></i></span>
                 <span id="next" onclick="next()"><i class="fa-solid fa-caret-right"></i></span>
-            </div>
-        </div>
+                </div>';
+        echo'</div>
+
+
         <h2 class="heading">Top Releases</h2>
         <div class="main-half">';
        
-        
+$sql = "SELECT * FROM `uploaded_data` LIMIT 5";
+$result = mysqli_query($conn, $sql);        
 if (mysqli_num_rows($result) > 0) {
     echo '<div class="main-half-container">';
     while ($row = mysqli_fetch_assoc($result)) {
@@ -121,64 +111,16 @@ if (mysqli_num_rows($result6) > 0) {
                 <h2 class="see-all"><a href="">See All<i class="fa-solid fa-arrow-right"></i></a></h2>
             </div>
             <div class="artists" id="artists">
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/arijit.jpeg" alt=""></div>
-                    <h3>Arijit Singh</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/selena.webp" alt=""></div>
-                    <h3>Selena Gomez</h3>
-                </div>
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/yoyo.avif" alt=""></div>
-                    <h3>Honey Singh</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/jubin.webp" alt=""></div>
-                    <h3>Jubin Nautiyal</h3>
-                </div>
-       
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/atif.jpg" alt=""></div>
-                    <h3>Atif Aslam</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/billie.jpg" alt=""></div>
-                    <h3>Billie Eillish</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/ed.jpg" alt=""></div>
-                    <h3>Ed Sheeran</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/jason.jpeg" alt=""></div>
-                    <h3>Jason Deurelo</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/kk.jpg" alt=""></div>
-                    <h3>K.K</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/justin.jpg" alt=""></div>
-                    <h3>Justin Beiber</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/luis.jpeg" alt=""></div>
-                    <h3>Luis Fonsi</h3>
-                </div>
-            
-                <div class="artists-box">
-                    <div class="singer-img"><img src="../images/artists/yankee.jpeg" alt=""></div>
-                    <h3>Daddy Yankee</h3>
-                </div>
+            <?php
+            $sql_artists = "SELECT * FROM artists";
+            $result_artists = mysqli_query($conn,$sql_artists);
+            if(mysqli_num_rows($result_artists)>0){
+                while($row_artists = mysqli_fetch_assoc($result_artists)){
+                echo'<div class="artists-box">
+                        <div class="singer-img"><img src="../images/artists/'.$row_artists['artistImage'].'" alt=""></div>';
+                        echo '<h3><a href="artist_details.php?handle=' . urlencode($row_artists['handle']) . '">' . $row_artists['stage_name'] . '</a></h3>';
+
+                    echo '</div>'; } }?>
             </div>
             <div class="perv-next1">
                 <span id="perv1"><i class="fa-solid fa-caret-left"></i></span>

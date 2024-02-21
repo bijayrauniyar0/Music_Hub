@@ -72,11 +72,15 @@ echo '
                 if($loggedin == true){
                     echo'
                     <div class ="user-container">
-                        <div class="user">
-                        <span id="user"><img src="../images/artists/'.$row4['artistImage'].'" id="user-img"> <h2>  '.$row["first_name"].'  </h2>  
-                        <i class="fa fa-caret-down"></i></span>
+                        <div class="user">';
+                        if($stageExists == true){
+                        echo '<span id="user"><img src="../images/artists/'.$row4['artistImage'].'" id="user-img"> <h2>'.$row["first_name"].'</h2> <i class="fa fa-caret-down"></i></span> ';}
+                        
+                        else{
+                           echo' <span id="user"><img src="../images/fixed/nobita.jpg" id="user-img"> <h2>'.$row["first_name"].'</h2> <i class="fa fa-caret-down"></i></span> ';}
 
-                            <div class="user-login">
+
+                           echo' <div class="user-login">
                                 <a href="../main/profile.php">Profile</a>
                                 <hr>
                                 <a href="../partials/_logout.php">Log Out</a>

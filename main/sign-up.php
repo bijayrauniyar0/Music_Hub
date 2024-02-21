@@ -38,16 +38,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $checkEmailResult = mysqli_query($conn, $checkEmailQuery);
 
         if (mysqli_num_rows($checkEmailResult) > 0) {
-            $emailExistsError = true;
+            echo'<script>
+                alert(" Error! Email Already Exists")
+            </script>';
         }
         elseif ($passwordLength < 8) {
-            $lengthError = true;
+            echo'<script>
+            alert(" Error! Password length must be more than 8")
+        </script>';
         } 
         elseif ($password != $c_password) {
-            $matchError = true;
+            echo'<script>
+                alert(" Error! Passwords don\'t match")
+            </script>';
         } 
         elseif ($numberLength != 10 || !is_numeric($phone)) {
-            $phoneError = true;
+            echo'<script>
+                alert(" Error! Enter a valdid phone number")
+            </script>';
         }
         elseif ($passwordLength >= 8 && $password == $c_password && $exists == false) {
             
@@ -63,8 +71,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                     alert(" Hello!'.$first_name.'\n Welocome to Loop Verse")
                     window.location.href = "sign-in.php";
                 </script>';
+            }else{
+                echo'<script>
+                alert("Failed to create account, \n Try Again!")
+                window.location.href = "sign-in.php";
+            </script>';
             }
         }
+    }
+    else{
+        echo'<script>
+                alert(" Error! Try Again")
+            </script>';
     }
 ?>
 
