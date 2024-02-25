@@ -155,6 +155,7 @@ defaultSong = "Apna_Bana_Le.mp3"
 window.onload = function () {
     pauseBtn.style.display = "none";
     playBtn.style.display = "block";
+    musicImage.src= "../images/01.jpg";
     updateSong();
     updateSliderColor();
     audio.src = "../songs/"+defaultSong;

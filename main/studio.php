@@ -7,10 +7,13 @@ if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true )  {
 
 include '../partials/_dbconnect.php';
 // Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
 
     $sqlSongsTable = "CREATE TABLE IF NOT EXISTS uploaded_data (
         id INT AUTO_INCREMENT PRIMARY KEY,
+        stage_name VARCHAR(50),
         email VARCHAR(255),
         handle VARCHAR(255),
         title VARCHAR(255) NOT NULL,
@@ -19,8 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         thumbnail VARCHAR(255),
         audio VARCHAR(255),
         uploaded_at  DATETIME
+
+        
         
     )";
+    $audioDuration = $_POST['audioDuration'];
+
+
     $resultSongsTable = mysqli_query($conn,$sqlSongsTable);
 
     $sqlFetchArtists = "SELECT * FROM `artists` WHERE Email = '".$_SESSION['email']."' ";
@@ -37,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $genre = $_POST["genre"];
         $thumbnailName = $_FILES["image"]["name"];
         $audioName = $_FILES["audioFile"]["name"];
+        $audioDuration = $_POST["audioDuration"];
 
 
         // Function to sanitize and rename file name
@@ -79,8 +88,8 @@ move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDi
 
 
         // Insert data into database
-        $sql = "INSERT INTO uploaded_data (name ,email, handle,title, description, genre, thumbnail, audio, uploaded_at) 
-        VALUES ('$stage_name ','".$_SESSION['email']."', '$handle','$title', '$description', '$genre', '$thumbnailName', '$audioName', current_timestamp());";        
+        $sql = "INSERT INTO uploaded_data (stage_name ,email, handle,title, description, genre, thumbnail, audio, duration, uploaded_at) 
+        VALUES ('$stage_name ','".$_SESSION['email']."', '$handle','$title', '$description', '$genre', '$thumbnailName', '$audioName','$audioDuration', current_timestamp());";        
         
         if (mysqli_query($conn, $sql)) {
             echo '<script>alert("Congrats! Your Audio has been uploaded")</script>';
@@ -90,7 +99,10 @@ move_uploaded_file($_FILES["audioFile"]["tmp_name"], $targetDirectory . $audioDi
     } else {
         echo '<script>alert("Error! Try Again")</script>';
     }
+}else{
+    echo'audio duration error';
 }
+
 $sqlUploadData = "SELECT * FROM uploaded_data WHERE email = '".$_SESSION["email"]."'";
 $resultUploadedData = mysqli_query($conn,$sqlUploadData);
 
@@ -178,6 +190,7 @@ echo '
                     <div class="audio-input">
                     <label for="audioFile">Select audio file:</label><br>
                     <input type="file" id="audioFile" name="audioFile" accept="audio/*">
+                    <input type="hidden" id="audioDurationInput" name="audioDuration">
                     </div>
                 </div>   
                 <span id= "sbt-btn">  
@@ -191,6 +204,7 @@ echo '
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="../js/studio.js"></script>
         <script src="../js/script.js"></script>
+        <script src="../js/duration.js"></script>
        
 
 </body>

@@ -34,7 +34,7 @@ echo'
                     <img id="sliderImage" src="../images/' . $row7['thumbnail'] . '" class="img-release" alt="">                
                     <div class="image-details">
                         <h2>' . $row7['title'] . '</h2>
-                        <p>' . $row7['Name'] . '</p> ';
+                        <p>' . $row7['stage_name'] . '</p> ';
                         echo '
                         <h3 class="play-now" onclick="playNow(\''.$row7['audio'].'\'); songDisplay(\''.$row7['title'].'\'); imgDisplay(\''.$row7['thumbnail'].'\')"> <a><i class="fa-solid fa-circle-play"></i>Play Now</a></h3>';
                     echo'</div>';
@@ -68,7 +68,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '    </div>';
         echo '    <div class="song-details">';
         echo '        <h3>' . $row['title'] . '</h3>'; // Change this to the appropriate column name
-        echo '<h4><a href="artist_details.php?handle=' . urlencode($row['handle']) . '">' . $row['Name'] . '</a></h4>';
+        echo '<h4><a href="artist_details.php?handle=' . urlencode($row['handle']) . '">' . $row['stage_name'] . '</a></h4>';
         echo '    </div>';
         echo '</div>';
     }
@@ -95,7 +95,7 @@ if (mysqli_num_rows($result6) > 0) {
         echo '    </div>';
         echo '    <div class="song-details">';
         echo '        <h3>' . $row6['title'] . '</h3>'; // Change this to the appropriate column name
-        echo '<h4><a href="artist_details.php?handle=' . urlencode($row6['handle']) . '">' . $row6['Name'] . '</a></h4>';
+        echo '<h4><a href="artist_details.php?handle=' . urlencode($row6['handle']) . '">' . $row6['stage_name'] . '</a></h4>';
         echo '    </div>';
         echo '</div>';
     }
@@ -143,6 +143,7 @@ if (mysqli_num_rows($result6) > 0) {
         $current_row = 0;
         while ($row1 = mysqli_fetch_assoc($result1)) {
             $current_row++;
+            $duration1 = gmdate('i:s', $row1['duration']);
             echo '<div class="list-holder">';
             echo '    <div class="list-detail">';
             echo '        <div class="songs-full-details">';
@@ -154,10 +155,10 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row1['title'] . '</h3>';
-            echo '<h4><a href="artist_details.php?handle=' . urlencode($row1['handle']) . '">' . $row1['Name'] . '</a></h4>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row1['handle']) . '">' . $row1['stage_name'] . '</a></h4>';
             echo '            </div>';
             echo '            <div class="time">';
-            echo '                <p>3:38</p>';
+            echo '                <p>'. $duration1.'</p>';
             echo '            </div>';
             echo '        </div>';
             echo '    </div>';
@@ -185,6 +186,7 @@ if (mysqli_num_rows($result6) > 0) {
         echo '<div class="row">';
         $current_row2  = 0;
         while ($row2 = mysqli_fetch_assoc($result2)) {
+            $duration2 = gmdate('i:s', $row2['duration']);
 
             $current_row2++;
             echo '<div class="list-holder">';
@@ -197,10 +199,10 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row2['title'] . '</h3>';
-            echo '<h4><a href="artist_details.php?handle=' . urlencode($row2['handle']) . '">' . $row2['Name'] . '</a></h4>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row2['handle']) . '">' . $row2['stage_name'] . '</a></h4>';
             echo '            </div>';
             echo '            <div class="time">';
-            echo '                <p>3:38</p>';
+            echo '                <p>'. $duration2 .'</p>';
             echo '            </div>';
             echo '        </div>';
             echo '    </div>';
@@ -231,6 +233,7 @@ if (mysqli_num_rows($result6) > 0) {
         $current_row3  = 0;
         
         while ($row3 = mysqli_fetch_assoc($result3)) {
+            $duration3 = gmdate('i:s', $row3['duration']);
                 $current_row3++;
             echo '<div class="list-holder">';
             echo '    <div class="list-detail">';
@@ -242,10 +245,10 @@ if (mysqli_num_rows($result6) > 0) {
             echo '            </div>';
             echo '            <div class="list-text">';
             echo '                <h3>' . $row3['title'] . '</h3>';
-            echo '<h4><a href="artist_details.php?handle=' . urlencode($row3['handle']) . '">' . $row3['Name'] . '</a></h4>';
+            echo '<h4><a href="artist_details.php?handle=' . urlencode($row3['handle']) . '">' . $row3['stage_name'] . '</a></h4>';
             echo '            </div>';
             echo '            <div class="time">';
-            echo '                <p>3:38</p>';
+            echo '                <p>'. $duration3 .'</p>';
             echo '            </div>';
             echo '        </div>';
             echo '    </div>';
