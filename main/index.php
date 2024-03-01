@@ -122,6 +122,7 @@ if (mysqli_num_rows($result6) > 0) {
 
                     echo '</div>'; } }?>
             </div>
+            <!-- artists perv or next buttons -->
             <div class="perv-next1">
                 <span id="perv1"><i class="fa-solid fa-caret-left"></i></span>
                 <span id="next1"><i class="fa-solid fa-caret-right"></i></span>
