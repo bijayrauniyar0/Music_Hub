@@ -267,6 +267,7 @@ if (mysqli_num_rows($result6) > 0) {
     ?>
 </div>
 
+
     </section>
 </main>
 <?php require '../partials/_footer.php'; ?>
