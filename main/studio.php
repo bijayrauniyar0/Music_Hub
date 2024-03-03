@@ -144,6 +144,7 @@ echo '
             
 
 ?>
+<!-- background blur -->
         <div class="overlay"></div>
 
 </main>
