@@ -150,6 +150,7 @@ echo '
 </main>
         <div class="upload-formm">
             <span id="upload-heading" class="create-heading">
+
                 <h2>Upload Song</h2>
                 <h2 onclick="closeUploader()" class="x"><i class="fa-solid fa-xmark"></i></h2>
             </span>
@@ -159,11 +160,11 @@ echo '
                     <input type="text" name="title" id="title" placeholder="Enter title for your song" required>
                 </div>
                 <div class="details-box">
-                    <label for="description">Description:</label>
+                    <label for="description">Description</label>
                     <textarea name="description" id="description" rows="4" cols="30" placeholder="Enter Description for you song"></textarea>
                 </div>
                 <div class="details-box"> 
-                    <label for="genre">Genre:</label>
+                    <label for="genre">Genre</label>
                     <select id="genre" name="genre" required>
                         <option value="">Select a genre</option>
                         <option value="pop">Pop</option>
