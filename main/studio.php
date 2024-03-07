@@ -179,7 +179,7 @@ echo '
                         <option value="blues">Blues</option>
                         </select>
                 </div>
-                
+                <!-- Uploadung Thumbnail -->
                 <div class="image-upload">
                     <div class="thumbnail-image">
                         <h2>Thumbnail</h2>
