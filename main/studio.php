@@ -163,6 +163,7 @@ echo '
                     <label for="description">Description</label>
                     <textarea name="description" id="description" rows="4" cols="30" placeholder="Enter Description for you song"></textarea>
                 </div>
+                <!-- select genre -->
                 <div class="details-box"> 
                     <label for="genre">Genre</label>
                     <select id="genre" name="genre" required>
