@@ -33,8 +33,8 @@ echo '
     echo' <div class="image-box">
          <img src="../images/artists/'.$artistImg.'" alt="">
          <div class="artist-detail">
-             <h2>'.$artistName.'</h2>
-             <p>'.$handle.'</p>
+             <h2 style="filter: drop-shadow(0 0 5px #ffffff); font-weight:800;">'.$artistName.'</h2>
+             <p  style="filter: drop-shadow(0 0 10px #ffffff); font-weight:800;">'.$handle.'</p>
          </div>
      </div>';
 if ($result1->num_rows > 0) {
@@ -45,7 +45,7 @@ if ($result1->num_rows > 0) {
         if($i==1){
         echo '
         <div class="title-box">
-            <h1 class="uploaded-heading"> Songs from '.$row1['Name'].'</h1>
+            <h1 class="uploaded-heading"> Songs from '.$row1['stage_name'].'</h1>
             <div class="horizental-line"></div>
         </div>';
         }

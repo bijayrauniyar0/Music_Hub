@@ -129,11 +129,11 @@ echo '
                         <div id="handle-error"></div>
                     </div>
                     <div class="form-text-container" id="artist-image">
-                        <h2>Thumbnail</h2>
+                        <h2 style="color:white;">Profile Pic</h2>
                         <div class="dashed-box">
                                 <label for="image" class="file-input-container">
-                                    <img src="../images/camera-icon.png" alt="Camera Icon" class="camera-icon">
-                                    <input type="file" name="image" id="image" class="file-input" accept="image/*" required>
+                                    <img src="../images/camera-icon.png" alt="Camera Icon" class="camera-icon" id="profile-img" onerror="this.src=\'../images/camera-icon.png\'">
+                                    <input type="file" name="image" id="image" class="file-input" accept="image/*" onchange="handleChange()" required>
                                 </label>
                         </div>
                         
@@ -151,6 +151,22 @@ echo '
     <script>
      function openUploader() {
         window.location.href = "../main/studio.php";
+    }
+    function handleChange() {
+        const fileInput = document.getElementById('image');
+        const selectedImage = document.getElementById('profile-img');
+        console.log("objectHelooooooooo")
+        
+        // Check if any file is selected
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const fileName = file.name;
+            const fileURL = URL.createObjectURL(file);
+            selectedImage.src = fileURL;
+
+        } else {
+            selectedImage.src = "";
+        }
     }
     </script>
 <script src="../js/toggler.js"></script>
