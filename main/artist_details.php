@@ -1,4 +1,5 @@
 <?php
+session_start();
     $handle = $_GET['handle'];
 
     include '../partials/_dbconnect.php';

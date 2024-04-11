@@ -130,7 +130,7 @@ main{
 }
 .thumbnail-image h2{
     font-size: 16px;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg)
 }
 .audio-input{
     margin-left: 30px;
@@ -140,6 +140,7 @@ main{
     margin-top: 50px;
     transform: scale(1.4);
     margin-left: 40px;
+    margin-bottom: 50px;
 }
 input[type="file"]:hover{
     cursor: pointer;
@@ -151,6 +152,7 @@ input[type="file"]:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 #uploader-form #sbt-btn #upload-btn{
